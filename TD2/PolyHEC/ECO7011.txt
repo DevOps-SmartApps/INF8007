@@ -1,0 +1,2 @@
+TitreCours: Macroeconomie avancee
+DescriptionCours: Etude approfondie des theories et politiques macroeconomiques en economie fermee et ouverte. Aspects statiques et dynamiques de la determination de la production reelle et des prix. Etat des debats sur la gestion macroeconomique. Contrainte de financement des gouvernements. Inflation et chomage.

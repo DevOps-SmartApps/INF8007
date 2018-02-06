@@ -1,0 +1,2 @@
+TitreCours: Philosophie grecque : Aristote
+DescriptionCours: Etude de quelques aspects de la pensee d'Aristote.

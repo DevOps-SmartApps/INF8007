@@ -1,0 +1,2 @@
+TitreCours: Laboratoire de chimie physique
+DescriptionCours: Etudes physicochimiques des gaz et des liquides. Etudes des equilibres de phases. Electrochimie. Cinetique chimique. Analyse thermique. Acquisition et traitement de donnees par microordinateur.

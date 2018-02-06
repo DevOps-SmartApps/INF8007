@@ -1,0 +1,2 @@
+TitreCours: Colloque d'histoire comparee
+DescriptionCours: Etude comparee du Quebec et de la France ou des Etats-Unis.

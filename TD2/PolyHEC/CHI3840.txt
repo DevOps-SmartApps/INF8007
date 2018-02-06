@@ -1,0 +1,2 @@
+TitreCours: Traitement d
+DescriptionCours: Rendement de l'epuration primaire ou secondaire et besoins particuliers de traitement. Elimination de l'azote et du phosphore. Echange ionique, absorption sur charbon, filtration et processus membranaires. Autres traitements tertiaires. Etude de quelques cas d'interet regional.

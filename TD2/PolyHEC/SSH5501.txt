@@ -1,0 +1,2 @@
+TitreCours: Ethique appliquee a l'ingenierie
+DescriptionCours: Statut de l'ingenieur et valeurs de la profession d'ingenieur. Lois et reglements concernant la profession d'ingenieur. Ethique et deontologie. Specificite de l'ethique. Courants theoriques en ethique. Raisonnement et prise de decision ethiques. Justification et mise en application de la decision ethique. Etudes de cas: conflit d'interet, tentative de corruption, manque d'equite, danger pour la sante et la securite des travailleurs ou du public, danger pour l'environnement. Avenir de l'ethique appliquee.

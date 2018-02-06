@@ -1,0 +1,2 @@
+TitreCours: Nutrition et alimentation animale
+DescriptionCours: Elements nutritifs et mineraux necessaires au fonctionnement animal. Deficiences, intoxications et effets d'une carence ou d'un exces -approche veterinaire. Evaluations des additifs alimentaires du rationnement. Notions de phytotoxicologie.

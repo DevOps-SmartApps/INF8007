@@ -1,0 +1,2 @@
+TitreCours: Economie publique
+DescriptionCours: Etude systematique des choix publics. Analyse des surplus. Externalites, rendement croissant et biens publics. Criteres de choix des investissements publics. Tarification publique. Equite et efficacite dans la taxation. L'incidence des depenses de l'Etat et de la taxation.

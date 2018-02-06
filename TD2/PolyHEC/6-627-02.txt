@@ -1,0 +1,2 @@
+TitreCours: Statistique textuelle
+DescriptionCours: Pour presenter les objectifs du cours, nous presentons la description du livre de reference. "Statistique textuelle : Ludovic Lebart, Directeur de recherches au CNRS, Ecole nationale superieure des telecommunications, et Andre Salem, Ingenieur a l'Ecole normale superieure de Fontenay-Saint-Cloud,Editeurs : DUNOD 1994 ISBN : 2100022393 - Prix : 170 FRF - 25,92

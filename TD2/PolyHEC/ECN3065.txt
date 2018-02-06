@@ -1,0 +1,2 @@
+TitreCours: Analyse couts-benefices
+DescriptionCours: Principes fondamentaux de l'analyse couts-benefices de projets prives et publics. Efficacite economique. Equite. Applications economiques.

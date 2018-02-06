@@ -1,0 +1,2 @@
+TitreCours: Etude bidisciplinaire d
+DescriptionCours: Suite du seminaire IA.

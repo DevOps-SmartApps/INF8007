@@ -1,0 +1,2 @@
+TitreCours: Elements d'organographie
+DescriptionCours: Description des parties constituantes de l'orgue : structure generale, soufflerie, sommier, transmissions, tuyauterie. Composition d'un orgue.

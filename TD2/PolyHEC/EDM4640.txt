@@ -1,0 +1,2 @@
+TitreCours: Electronique
+DescriptionCours: Atelier axe sur les problematiques d'integration qui recourent a des dispositifs originaux et construits sur mesure, necessitant des connaissances en electronique et en mecanique. Initier aux notions generales de base en electricite et en magnetisme, en transfert energetique, en radioelectricite et telecommunication. Conception et realisation de circuits electroniques, microcontroleurs, interfaces, senseurs, composantes reseaux, robots, mecanismes et structures mobiles, etc. Etude des problematiques d'ergonomie homme-machine.

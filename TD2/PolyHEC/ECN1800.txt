@@ -1,0 +1,2 @@
+TitreCours: Economies nord-americaines
+DescriptionCours: Elements d'histoire economique nord-americaine; secteurs d'activites : primaire, secondaire, tertiaire; technologie de l'information et nouvelle economie.

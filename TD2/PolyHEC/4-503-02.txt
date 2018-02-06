@@ -1,0 +1,2 @@
+TitreCours: Planification des activites de production et de distribution
+DescriptionCours: Le but general du cours est d'amener l'etudiant a un niveau de comprehension des systemes de planification de la production et de la distribution (PPD) et des approches de gestion integree de la chaine logistique&nbsp; tel, qu'il soit apte a : a)&nbsp;utiliser pleinement les possibilites des modules de PPD a l'interieur d'un systeme de planification des ressources de l'entreprise (ERP) la ou il 

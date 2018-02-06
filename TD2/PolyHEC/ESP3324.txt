@@ -1,0 +1,2 @@
+TitreCours: Roman et conte hispano-americains
+DescriptionCours: Etude d'un choix de contes et romans representatifs des pays de l'Amerique hispanique.

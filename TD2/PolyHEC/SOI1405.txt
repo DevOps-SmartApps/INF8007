@@ -1,0 +1,2 @@
+TitreCours: Gestion des soins et des services
+DescriptionCours: Etude de theories et de concepts relatifs a la gestion des soins. Etude des fonctions de gestion dans un contexte de multidisciplinarite. Collaboration intradisciplinaire et interdisciplinaire.

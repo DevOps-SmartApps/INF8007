@@ -1,0 +1,2 @@
+TitreCours: Francais du Quebec
+DescriptionCours: Etude descriptive des principales caracteristiques phonetiques, morphologiques et syntaxiques du francais du Quebec, par opposition a d'autres varietes geographiques ou sociales du francais. Etude diachronique du francais du Quebec.

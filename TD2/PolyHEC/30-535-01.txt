@@ -1,0 +1,2 @@
+TitreCours: Gestion de projets : fondements et pratiques dans une optique de GOP
+DescriptionCours: Les gestionnaires des operations ont frequemment a participer a la planification et a l'execution de divers projets relies a la gestion des operations et de la production, tels que : 
