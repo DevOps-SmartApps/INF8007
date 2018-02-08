@@ -10,12 +10,14 @@ from collections import Counter
 
 def fillMatrix(n,d):
     for j in range(0,d):
-        for i in range(0,n):
-            for key in bigListD[j]:
-                matrix[bigListW.index(key),j]=bigListD[j][key]
-                #print(bigListW.index(key))
+        #print('%d processed over %d' % (j+1,d))
+        #for i in range(0,n):
+        for key in bigListD[j]:
+            matrix[bigListW.index(key),j]=bigListD[j][key]
+            #print(bigListW.index(key))
+            #scipyparse needed here
 
-def word_sep(content):
+def wordSep(content):
     dict_words = {}
     regex_word = r'\W+'
     regex_space = r'\s'
@@ -35,8 +37,8 @@ def word_sep(content):
 
 if __name__ == '__main__':
 
-    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
-    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
+    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
+    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
     words = []
     bigListW = []
@@ -47,12 +49,12 @@ if __name__ == '__main__':
     for filename in glob.glob(os.path.join(path, '*.txt')):
             with open(filename) as f: # No need to specify 'r': this is the default.
                 content = f.read()
-                word_sep(content)
+                wordSep(content)
                 f.close()
                 d += 1
 
     #print(bigListW)
-    print('\n\n\n')
+    print('Files opened\n')
     bigListW =  list(set(bigListW))
     #print(bigListW)
     n = len(bigListW)
