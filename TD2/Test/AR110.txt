@@ -1,2 +1,0 @@
-TitreCours: Stabilit du vol
-DescriptionCours: Mouvements d'un avion. Forces et moments arodynamiques. Stabilit et contrle statique. Stabilit dynamique et rponse caractristique. Qualit de vol et critre de navigabilit. Contrle automatique. Le pilote et l'avion considrs comme un systme.

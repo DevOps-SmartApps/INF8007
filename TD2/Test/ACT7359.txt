@@ -1,2 +1,0 @@
-TitreCours: Evaluation des regimes de retraite au Canada
-DescriptionCours: Analyse de la theorie et application des mathematiques de l'evaluation des regimes de retraite. Cotisation d'exercice, charges a payer, equivalences actuarielles, analyse des gains et pertes actuariels par source.

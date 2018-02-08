@@ -1,2 +1,0 @@
-TitreCours: English Languages since 1066
-DescriptionCours: Analyse de l'evolution de la langue anglaise basee sur des documents litteraires.

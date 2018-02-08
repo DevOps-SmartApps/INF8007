@@ -1,2 +1,0 @@
-TitreCours: Colloque a sujet ouvert
-DescriptionCours: Etude interdisciplinaire d'un sujet general ou litteraire.

@@ -1,2 +1,0 @@
-TitreCours: Shakespeare
-DescriptionCours: Etude des pieces de Shakespeare.

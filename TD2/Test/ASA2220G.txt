@@ -1,2 +1,0 @@
-TitreCours: Problematiques liees a la gestion
-DescriptionCours: Analyse de problematiques particulieres en gestion des services de sante et des services sociaux.

@@ -1,2 +1,0 @@
-TitreCours: Reading Journalism
-DescriptionCours: Lecture critique du journalisme contemporain et du role des medias.

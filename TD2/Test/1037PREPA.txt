@@ -1,2 +1,0 @@
-TitreCours: Introduction a l
-DescriptionCours: L'utilisation au quotidien du micro-ordinateur suppose la connaissance du vocabulaire approprie ainsi que la maitrise de certaines habiletes de base. Grace a des logiciels, tels que ceux de la suite Microsoft

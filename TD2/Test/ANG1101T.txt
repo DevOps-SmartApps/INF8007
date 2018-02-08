@@ -1,2 +1,0 @@
-TitreCours: English Composition
-DescriptionCours: Pratique de l'anglais ecrit.

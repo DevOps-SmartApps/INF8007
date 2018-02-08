@@ -1,2 +1,0 @@
-TitreCours: Processus et design
-DescriptionCours: Developpement de projets de conception de paysages integrant l'application de concepts theoriques et des systemes physicospatiaux, socioeconomiques et culturels du lieu.

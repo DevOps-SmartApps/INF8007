@@ -1,2 +1,0 @@
-TitreCours: Atelier d'intervention 1
-DescriptionCours: Activites educatives destinees a l'etude de problematiques specifiques de l'intervention dans les groupes et les organisations.

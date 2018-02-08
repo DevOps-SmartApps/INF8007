@@ -1,2 +1,0 @@
-TitreCours: Pratique de terrain
-DescriptionCours: 

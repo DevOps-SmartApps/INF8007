@@ -4,71 +4,58 @@ import re
 import sys
 import os
 import glob
-import pandas as pd
 import numpy as np
+from collections import Counter
 
 
-def traitement(bool_write,line,i):
-    regex_word = r'\s'
+def fillMatrix(n,d):
+    for j in range(0,d):
+        for i in range(0,n):
+            for key in bigListD[j]:
+                matrix[bigListW.index(key),j]=bigListD[j][key]
+                #print(bigListW.index(key))
 
-    regex_hyp = r'\-|\s'
-    hyp = []
-    hyp_clean = []
-    line = line.replace('\n','')
-    line_space = re.sub(regex_sentence,r' \1',line) # Ajoute d'un espace avant les points
-    line_space = re.sub(',',r' ,',line_space)
-    line_space = re.sub(';',r' ;',line_space)
-    line_space = re.sub('\'',' \'',line_space)
-    line_space = re.sub(':',r' :',line_space)
+def word_sep(content):
+    dict_words = {}
+    regex_word = r'\W+'
+    regex_space = r'\s'
 
-    #je les gère au cas par cas pour avoir un fichier en sortie identique à celui demandé mais pas très robuste comme façon de faire
+    CleanString = re.sub('\W+',' ',content) # Ajoute d'un espace avant les points
 
-    words = re.split(regex_word,line_space) # Split pour creer une list avec tous les mots
-    sentences = re.split(regex_sentence,line)
-    del sentences[len(sentences)-1]
-    sentences =  [x + y for x, y in zip(sentences[::2], sentences[1::2])]
-    sentences = [x.strip(' ') for x in sentences]
+    #Remplacer par racine et enlever mots inutiles
 
-    for x in words:
-        hyp.append(re.split(regex_hyp,dic.inserted(x)))
+    words = re.split(regex_word,CleanString) # Split pour creer une list avec tous les mots
+    dict_words = Counter(words)
+    bigListD.append(dict_words)
 
-    for x in hyp:
-        if len(x)>1:
-            for y in x:
-                hyp_clean.append(y)
-        else:
-            hyp_clean.append(x[0]) # Pour eviter le []
-
-    nb_hyp = len(hyp_clean)
-    nb_words = len(words)
-    nb_sentences = len(sentences)-(sentences.count('.')+sentences.count('...')+sentences.count('?')+sentences.count('!'))
-    # On aurait pu laisser juste '.' et '...' dans le cas de train mais cela permet une meilleure ré-utilisabilité du script de mettre tous les cas de fin de phrase.
-
-    Flesch_i = 206.835-1.015*(nb_words/nb_sentences)-84.6*(nb_hyp/nb_words)
-    my_print(bool_write,i,hyp_clean,nb_hyp,words,nb_words,sentences,nb_sentences,Flesch_i)
+    for i in range(0,len(words)): # On crée un liste avec tous les mots, on enlèvera les doublons après
+        bigListW.append(words[i])
 
 # Fonction main
 
 if __name__ == '__main__':
 
-    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/TEST'
+    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
     #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
-    file_in = list()
+    words = []
+    bigListW = []
+    bigListD = [] # Une liste de tous les dictionnaires associés à chaque description de cours
+    d = 0
+    n = 0
 
     for filename in glob.glob(os.path.join(path, '*.txt')):
             with open(filename) as f: # No need to specify 'r': this is the default.
                 content = f.read()
-                df_prim = pd.DataFrame(content, columns = ['raw'])
-                df_prim['titre'] = df_prim['raw'].str.extract('TitreCours', expand=True)
-                df_prim['description'] = df_prim['raw'].str.extract(r'\:\-([^\-]*)', expand=True)
+                word_sep(content)
+                f.close()
+                d += 1
 
-                print(filename, len(content))
-
-        #file_trgt = sys.argv[1]
-
-        #out_f = inputfile.split(".")[0] + "__solution.txt" #on a récupéré le nom de l'input et on lui ajoute une extension de la forme demandée
-
-        #fr  = open(out_f, 'w')
-    print(content)
-    i = 0; #Pour compter les lignes
+    #print(bigListW)
+    print('\n\n\n')
+    bigListW =  list(set(bigListW))
+    #print(bigListW)
+    n = len(bigListW)
+    matrix = np.zeros((n,d), dtype=np.int)
+    fillMatrix(n,d)
+    print(matrix)

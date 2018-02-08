@@ -1,2 +1,0 @@
-TitreCours: Laboratoire de mathematiques financieres
-DescriptionCours: Etude de problemes complexes en mathematiques financieres. Communication des resultat.

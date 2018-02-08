@@ -1,2 +1,0 @@
-TitreCours: English for Health Care Professionals
-DescriptionCours: Test de classement.

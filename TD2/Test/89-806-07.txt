@@ -1,2 +1,0 @@
-TitreCours: MC-ECON 662D Econometrics
-DescriptionCours: 

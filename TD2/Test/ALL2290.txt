@@ -1,2 +1,0 @@
-TitreCours: Lectures guidees 1
-DescriptionCours: Etude de textes choisis en fonction des besoins et interets academiques de l'etudiant.

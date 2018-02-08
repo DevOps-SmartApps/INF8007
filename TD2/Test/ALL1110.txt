@@ -1,2 +1,0 @@
-TitreCours: Allemand ecrit
-DescriptionCours: Premier niveau de redaction : production de textes divers (resume, commentaire, analyse, synthese, dissertation...) en langue allemande.

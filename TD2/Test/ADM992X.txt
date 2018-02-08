@@ -1,2 +1,0 @@
-TitreCours: Seminaire thematique en systemes d
-DescriptionCours: Seminaire a contenu variable portant sur les systemes d'information.

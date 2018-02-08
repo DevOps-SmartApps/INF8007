@@ -1,2 +1,0 @@
-TitreCours: Activite de recherche
-DescriptionCours: 

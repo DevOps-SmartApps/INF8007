@@ -1,2 +1,0 @@
-TitreCours: Lectures dirigees en sciences comptables
-DescriptionCours: 

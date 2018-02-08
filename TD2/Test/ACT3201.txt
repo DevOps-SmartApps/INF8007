@@ -1,2 +1,0 @@
-TitreCours: Mathematiques des regimes de rentes
-DescriptionCours: Regimes de rentes publics et prives. Capitalisation des couts. Methodes actuarielles d'evaluation. Valeur des actifs. Analyse des gains et pertes.

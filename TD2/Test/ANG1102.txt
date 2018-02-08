@@ -1,2 +1,0 @@
-TitreCours: English Composition 2
-DescriptionCours: Pratique de l'anglais ecrit dans plusieurs domaines. Revision grammaticale.

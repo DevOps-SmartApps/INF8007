@@ -1,2 +1,0 @@
-TitreCours: Grammaire fondamentale 3
-DescriptionCours: Approfondissement des connaissances grammaticales acquises aux cours ALL 1014 et ALL 1015, etude de difficultes particulieres, avec exercices ecrits et oraux.
