@@ -1,0 +1,2 @@
+TitreCours: Theorie des pratiques
+DescriptionCours: Je mange du jambon cuis 
