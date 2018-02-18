@@ -5,15 +5,24 @@ import sys
 import os
 import glob
 import numpy as np
-from collections import Counter
+from collections import *
 from nltk.stem.snowball import SnowballStemmer
+from scipy.sparse import csr_matrix
+from tqdm import tqdm
+#python pickle
 
-
-def fillMatrix(n,d):
-    for j in range(0,d):
-        print('%d processed over %d' % (j+1,d))
+def prepMatrix(n,d):
+    for j in tqdm(range(0,d), "Matrix preparation"):
         for key in bigListD[j]:
-            matrix[bigListW.index(key),j]=bigListD[j][key]
+            Mdata.append(bigListD[j][key])
+            Mrow.append(dictIndex[key])
+            #Mrow.append(bigListW.index(key))
+        for i in range(0,len(bigListD[j])):
+            Mcol.append(j)
+
+
+        #for key in bigListD[j]:
+            #matrix[bigListW.index(key),j]=bigListD[j][key]
             #print(bigListW.index(key))
             #scipyparse needed here
 
@@ -31,39 +40,54 @@ def wordSep(content):
 
     for i in range(0,len(words)):
         words[i] = stemmer.stem(words[i]) #Réduction des mots à leur racine
-    dict_words = Counter(words)
+    dict_words = OrderedCounter(words)
     bigListD.append(dict_words)
 
     for i in range(0,len(words)): # On crée un liste avec tous les mots, on enlèvera les doublons après
         bigListW.append(words[i])
 
+
 # Fonction main
 
 if __name__ == '__main__':
 
-    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
+
+    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Testizi'
     path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
     stemmer = SnowballStemmer('french')
     words = []
     bigListW = []
     bigListD = [] # Une liste de tous les dictionnaires associés à chaque description de cours
+    dictIndex = {}
     courseDesc = []
+    Mdata = []
+    Mrow = []
+    Mcol = []
     d = 0
     n = 0
 
-    for filename in glob.glob(os.path.join(path, '*.txt')):
+    class OrderedCounter(Counter, OrderedDict):
+        pass
+
+    for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
             with open(filename) as f: # No need to specify 'r': this is the default.
                 content = f.read()
                 wordSep(content)
                 f.close()
                 d += 1
 
-    #print(bigListW)
-    print('Files opened\n')
+    print('\n')
     bigListW =  list(set(bigListW))
-    print(bigListW)
+    #print(bigListW)
     n = len(bigListW)
-    matrix = np.zeros((n,d), dtype=np.int)
-    fillMatrix(n,d)
-    print(matrix)
+
+    for x in bigListW:
+        dictIndex[x] = bigListW.index(x)
+
+
+    #print(bigListW)
+    #print(dictIndex)
+    prepMatrix(n,d)
+    matrix = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
+    print(matrix.A)

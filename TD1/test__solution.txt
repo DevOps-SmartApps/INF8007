@@ -8,11 +8,13 @@ Words:
 It-was-the-best-of-times-,-it-was-the-worst-of-times-,-it-was-the-age-of-wisdom-,-it-was-the-age-of-foolishness-,-it-was-the-epoch-of-belief-,-it-was-the-epoch-of-incredulity-,-it-was-the-season-of-Light-,-it-was-the-season-of-Darkness-,-it-was-the-spring-of-hope-,-it-was-the-winter-of-despair-,-we-had-everything-before-us-,-we-had-nothing-before-us-,-we-were-all-going-direct-to-Heaven-,-we-were-all-going-direct-the-other-way-.
 Total: 99
 
-Sentences: 
+Sentences:
 It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way.
 Total: 1
 
 Total: 2.950
+
+
 Line 2
 ------
 Syllables:
@@ -23,11 +25,13 @@ Words:
 In-my-younger-and-more-vulnerable-years-my-father-gave-me-some-advice-that-Iâ€™ve-been-turning-over-in-my-mind-ever-since-.-Whenever-you-feel-like-criticising-any-one-,-he-told-me-,-just-remember-that-all-the-people-in-this-world-havenâ€™t-had-the-advantages-that-youâ€™ve-had-.
 Total: 53
 
-Sentences: 
+Sentences:
 In my younger and more vulnerable years my father gave me some advice that Iâ€™ve been turning over in my mind ever since.-Whenever you feel like criticising any one, he told me, just remember that all the people in this world havenâ€™t had the advantages that youâ€™ve had.
 Total: 2
 
 Total: 68.202
+
+
 Line 3
 ------
 Syllables:
@@ -38,11 +42,13 @@ Words:
 Once-upon-a-time-there-was-a-boy-who-loved-a-girl-,-and-her-laughter-was-a-question-he-wanted-to-spend-his-whole-life-answering-.
 Total: 28
 
-Sentences: 
+Sentences:
 Once upon a time there was a boy who loved a girl, and her laughter was a question he wanted to spend his whole life answering.
 Total: 1
 
 Total: 75.686
+
+
 Line 4
 ------
 Syllables:
@@ -53,11 +59,13 @@ Words:
 She-was-lost-in-her-longing-to-understand-.
 Total: 9
 
-Sentences: 
+Sentences:
 She was lost in her longing to understand.
 Total: 1
 
 Total: 84.900
+
+
 Line 5
 ------
 Syllables:
@@ -68,11 +76,13 @@ Words:
 There-are-darknesses-in-life-and-there-are-lights-,-and-you-are-one-of-the-lights-,-the-light-of-all-lights-.
 Total: 24
 
-Sentences: 
+Sentences:
 There are darknesses in life and there are lights, and you are one of the lights, the light of all lights.
 Total: 1
 
 Total: 90.825
+
+
 Line 6
 ------
 Syllables:
@@ -83,11 +93,13 @@ Words:
 Tomorrow-is-always-fresh-,-with-no-mistakes-in-it-yet-.
 Total: 12
 
-Sentences: 
+Sentences:
 Tomorrow is always fresh, with no mistakes in it yet.
 Total: 1
 
 Total: 81.855
+
+
 Line 7
 ------
 Syllables:
@@ -98,11 +110,13 @@ Words:
 Everything-was-beautiful-and-nothing-hurt-.
 Total: 7
 
-Sentences: 
+Sentences:
 Everything was beautiful and nothing hurt.
 Total: 1
 
 Total: 54.701
+
+
 Line 8
 ------
 Syllables:
@@ -113,11 +127,13 @@ Words:
 It-'s-the-possibility-of-having-a-dream-come-true-that-makes-life-interesting-.
 Total: 15
 
-Sentences: 
+Sentences:
 It's the possibility of having a dream come true that makes life interesting.
 Total: 1
 
 Total: 61.890
+
+
 Line 9
 ------
 Syllables:
@@ -128,13 +144,15 @@ Words:
 I-cannot-fix-on-the-hour-,-or-the-spot-,-or-the-look-or-the-words-,-which-laid-the-foundation-.-It-is-too-long-ago-.-I-was-in-the-middle-before-I-knew-that-I-had-begun-.
 Total: 42
 
-Sentences: 
+Sentences:
 I cannot fix on the hour, or the spot, or the look or the words, which laid the foundation.-It is too long ago.-I was in the middle before I knew that I had begun.
 Total: 3
 
 Total: 95.939
+
+
 Line 10
-------
+-------
 Syllables:
 Do-I-love-you-?-My-God-,-if-your-love-were-a-grain-of-sand-,-mine-would-be-a-uni-verse-of-beach-es-.
 Total: 27
@@ -143,13 +161,15 @@ Words:
 Do-I-love-you-?-My-God-,-if-your-love-were-a-grain-of-sand-,-mine-would-be-a-universe-of-beaches-.
 Total: 25
 
-Sentences: 
+Sentences:
 Do I love you?-My God, if your love were a grain of sand, mine would be a universe of beaches.
 Total: 2
 
 Total: 102.780
+
+
 Line 11
-------
+-------
 Syllables:
 Love-is-the-long-ing-for-the-half-of-our-selves-we-have-lost-.
 Total: 15
@@ -158,7 +178,7 @@ Words:
 Love-is-the-longing-for-the-half-of-ourselves-we-have-lost-.
 Total: 13
 
-Sentences: 
+Sentences:
 Love is the longing for the half of ourselves we have lost.
 Total: 1
 
