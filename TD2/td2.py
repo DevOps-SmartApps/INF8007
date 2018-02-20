@@ -11,13 +11,23 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.linalg import svds, eigs
 from tqdm import tqdm
 import pickle
-import math
+
 
 
 def tfidf(matTFIFD,d):
-    for i in range(0,matTFIFD.shape[0]):
-        for j in range(0,matTFIFD.shape[1]):
-            matTFIFD[i][j] = math.log(d/(matTFIFD>0).sum(axis=1)[i])
+    df = ((matTFIFD>0).sum(axis=1).reshape(-1))
+    idf = np.log(d/df).resize(1,3)
+    print(idf.shape)
+    print(matTFIFD.shape)
+    matTFIFD = matTFIFD*idf
+
+    #matTFIFD[i][j] = math.log(d/df_flat[i])
+            # numpy.take
+            # np.log(d/df_flat)
+            # tfidf = matrix * df.resize(1,-1)
+            # csc matrix de la matrice dense obtenue
+
+
 # (matTFIFD>0).sum(axis=1) Compte du nombre de fichier ou ça apparait
 
 def prepMatrix(n,d):
@@ -113,12 +123,11 @@ if __name__ == '__main__':
 
     prepMatrix(n,d) # Creation de la matrice
     matrix = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
-    matrix = matrix.asfptype() # Cast en float
+    matrix = matrix.asfptype() # Cast en float pour le svd
+    matTFIFD = matrix
+    tfidf(matTFIFD,d)
     #print(matrix)
+    #Calcul du cos
     uMatrix,vlp,_ = svds(matrix, k = 2) # Réduction SVD
     uMatrix = uMatrix*vlp # uMatrix a pour dimensions n*k on multiplie par les vlp.
-    matTFIFD = uMatrix
-    tfidf(matTFIFD,d)
-    print(matTFIFD)
-
     # Faire la requête, transformer bigListW en dictionnaire avec le nombre d'occurences du mot pour récupérer ses values dans le tfidf.
