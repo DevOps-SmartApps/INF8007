@@ -86,8 +86,6 @@ except (OSError, IOError) as e:
         pickle.dump( bigListW, f )
         pickle.dump( d, f ) # Créer une fonction pour ça, mais besoin  d'appeler wordSep dedans
 
-
-    openFiles(path)
     bigListW =  list(set(bigListW))
     n = len(bigListW)
 
@@ -97,4 +95,5 @@ except (OSError, IOError) as e:
     prepMatrix(n,d) # Creation de la matrice
     matrix = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
     print(matrix)
-    #uMatrix = svds(matrix, k = 6) # Réduction SVD
+    uMatrix,vlp,_ = svds(matrix, k = 6) # Réduction SVD
+    uMatrix = uMatrix*vlp # uM n*k
