@@ -15,10 +15,15 @@ import pickle
 
 
 def tfidf(matTFIFD,d):
-    df = ((matTFIFD>0).sum(axis=1).reshape(-1))
-    idf = np.log(d/df).resize(1,3)
+    df = ((matTFIFD>0).sum(axis=1))
+    print(df)
+    idf = np.log(d/df)
+    print('\n\n\n')
+    print(idf)
+    print('\n\n\n')
     print(idf.shape)
     print(matTFIFD.shape)
+    print('\n\n\n')
     matTFIFD = matTFIFD*idf
 
     #matTFIFD[i][j] = math.log(d/df_flat[i])
@@ -92,10 +97,8 @@ if __name__ == '__main__':
             bigListW = pickle.load( f )
             d = pickle.load( f )
             reqDict = pickle.load( f )
-            print('Pickle !! <3\n')
-            #print(d)
+
     except (OSError, IOError) as e:
-        print('Pas pickle :(\n')
 
         for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
             with open(filename) as f: # No need to specify 'r': this is the default.
@@ -112,12 +115,8 @@ if __name__ == '__main__':
             pickle.dump( reqDict, f )
 
     dictIdf = OrderedCounter(bigListW)
-    print(dictIdf)
-    print('\n\n\n')
     bigListW =  list(set(bigListW)) # Pour enlever les doublons
     n = len(bigListW)
-    print(bigListW)
-
     for x in bigListW:
         dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
 
