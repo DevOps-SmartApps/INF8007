@@ -8,32 +8,28 @@ import numpy as np
 from collections import *
 from nltk.stem.snowball import SnowballStemmer
 from scipy.sparse import csr_matrix
+from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import svds, eigs
+from scipy import linalg
 from tqdm import tqdm
 import pickle
 
 
+#-----------------------------------------------------------------------------------------------------tfidf calculator
 
 def tfidf(matTFIFD,d):
-    df = ((matTFIFD>0).sum(axis=1))
-    print(df)
+    matTFIFD = matTFIFD.toarray()
+    df = ((matTFIFD>0).sum(axis=1)).reshape(-1)
     idf = np.log(d/df)
-    print('\n\n\n')
-    print(idf)
-    print('\n\n\n')
-    print(idf.shape)
-    print(matTFIFD.shape)
-    print('\n\n\n')
-    matTFIFD = matTFIFD*idf
-
-    #matTFIFD[i][j] = math.log(d/df_flat[i])
-            # numpy.take
-            # np.log(d/df_flat)
-            # tfidf = matrix * df.resize(1,-1)
-            # csc matrix de la matrice dense obtenue
+    matTFIFD = matTFIFD.T*idf
+    matTFIFD = matTFIFD.T
+    #matTFIFD = matTFIFD.T . dot(idf) # Faux à priori, vérifier la kouill'
+    #matTFIFD = matTFIFD.T
+    print(matTFIFD)
+    matTFIFD = csc_matrix(matTFIFD)
 
 
-# (matTFIFD>0).sum(axis=1) Compte du nombre de fichier ou ça apparait
+#------------------------------------------------------------------------------------------- sparse matrice preparation
 
 def prepMatrix(n,d):
     for j in tqdm(range(0,d), "Matrix preparation"):
@@ -43,6 +39,8 @@ def prepMatrix(n,d):
             #Mrow.append(bigListW.index(key))
         for i in range(0,len(bigListD[j])):
             Mcol.append(j)
+
+#-----------------------------------------------------------------------------------------------------------------parser
 
 def wordSep(content):
     dict_words = {}
@@ -64,12 +62,14 @@ def wordSep(content):
     for i in range(0,len(words)): # On crée un liste avec tous les mots, on enlèvera les doublons après
         bigListW.append(words[i])
 
+#------------------------------------------------------------------------------------------------------------------main
+
 if __name__ == '__main__':
 
     path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Testizi'
     #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
-#---------------- Definitions des cariables ----------------------#
+#---------------- Definitions des variables ----------------------#
     stemmer = SnowballStemmer('french')
     words = []
     listWReq =[]
@@ -123,10 +123,15 @@ if __name__ == '__main__':
     prepMatrix(n,d) # Creation de la matrice
     matrix = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
     matrix = matrix.asfptype() # Cast en float pour le svd
-    matTFIFD = matrix
+    matTFIFD = matrix # a corriger ici 
     tfidf(matTFIFD,d)
     #print(matrix)
     #Calcul du cos
-    uMatrix,vlp,_ = svds(matrix, k = 2) # Réduction SVD
-    uMatrix = uMatrix*vlp # uMatrix a pour dimensions n*k on multiplie par les vlp.
+    uMatrix,vlp,Vt = svds(matTFIFD, k = int(matTFIFD.shape[1]/2)) # Réduction SVD ,
+
+    uMatrix = uMatrix*vlp# uMatrix a pour dimensions n*k on multiplie par les vlp.
+    req = dot(,uMatrix)
+
+    print('\n\n')
+    print(Vt.shape)
     # Faire la requête, transformer bigListW en dictionnaire avec le nombre d'occurences du mot pour récupérer ses values dans le tfidf.
