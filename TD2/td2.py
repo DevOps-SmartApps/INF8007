@@ -11,28 +11,34 @@ from scipy.sparse import csr_matrix
 from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import svds, eigs
 from scipy import linalg
+from numpy.linalg import inv
 from tqdm import tqdm
 import pickle
+
+#----------------------------------------------------------------------------------------------------- cosinus
+
+
 
 
 #-----------------------------------------------------------------------------------------------------tfidf calculator
 
 def tfidf(matTFIFD,d):
-    matTFIFD = matTFIFD.toarray()
+    #matTFIFD = matTFIFD.toarray() # pas possible trop de mémoire
     df = ((matTFIFD>0).sum(axis=1)).reshape(-1)
     idf = np.log(d/df)
-    matTFIFD = matTFIFD.T*idf
-    matTFIFD = matTFIFD.T
-    #matTFIFD = matTFIFD.T . dot(idf) # Faux à priori, vérifier la kouill'
+    idf = np.diagflat(idf)
+    #print(idf)
+    #matTFIFD = matTFIFD*idf
     #matTFIFD = matTFIFD.T
-    print(matTFIFD)
-    matTFIFD = csc_matrix(matTFIFD)
+    matTFIFD = matTFIFD.T.dot(idf).T # Faux à priori, vérifier la kouill'
+
+
 
 
 #------------------------------------------------------------------------------------------- sparse matrice preparation
 
 def prepMatrix(n,d):
-    for j in tqdm(range(0,d), "Matrix preparation"):
+    for j in range(0,d):
         for key in bigListD[j]:
             Mdata.append(bigListD[j][key])
             Mrow.append(dictIndex[key])
@@ -66,8 +72,8 @@ def wordSep(content):
 
 if __name__ == '__main__':
 
-    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Testizi'
-    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
+    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Testizi'
+    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
 #---------------- Definitions des variables ----------------------#
     stemmer = SnowballStemmer('french')
@@ -121,17 +127,22 @@ if __name__ == '__main__':
         dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
 
     prepMatrix(n,d) # Creation de la matrice
-    matrix = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
-    matrix = matrix.asfptype() # Cast en float pour le svd
-    matTFIFD = matrix # a corriger ici 
+
+    matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
+    matF = matF.asfptype() # Cast en float pour le svd
+    req = matF[:,reqDict[sys.argv[1]]] # Récupération de la requête
+    matTFIFD = matF # a corriger ici
     tfidf(matTFIFD,d)
-    #print(matrix)
+    print('tfidf ok\n')
+    #print(matF)
     #Calcul du cos
-    uMatrix,vlp,Vt = svds(matTFIFD, k = int(matTFIFD.shape[1]/2)) # Réduction SVD ,
+    uMatrix,vlp,Vt = svds(matTFIFD, k = 2) # Réduction SVD ,
 
     uMatrix = uMatrix*vlp# uMatrix a pour dimensions n*k on multiplie par les vlp.
-    req = dot(,uMatrix)
+    #print(req.T.shape)
+    req = req.T.dot(uMatrix)
+    print(req.shape)
 
     print('\n\n')
-    print(Vt.shape)
+
     # Faire la requête, transformer bigListW en dictionnaire avec le nombre d'occurences du mot pour récupérer ses values dans le tfidf.
