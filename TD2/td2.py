@@ -11,29 +11,77 @@ from scipy.sparse import csr_matrix
 from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import svds, eigs
 from scipy import linalg
-from numpy.linalg import inv
+from scipy.sparse.linalg import inv
 from tqdm import tqdm
 import pickle
 
+
+#----------------------------------------------------------------------------------------------------- print fin
+def nomCours(classCode):
+	classFilePath = "PolyHEC/" + sys.arv[1].upper() + ".txt"
+
+	titlePattern = re.compile("TitreCours")
+
+	title = ""
+
+	with open(classFilePath, "r") as classFile:
+		for line in classFile:
+			if re.match(titlePattern, line) :
+				title = line.split(": ")[1]
+				title = re.sub("\n", "", title)
+
+
+	return title
+
+# Returns the description of a course
+def descriCours(classCode):
+	classFilePath = "PolyHEC/" + sys.arv[1].upper() + ".txt"
+
+	descPattern = re.compile("DescriptionCours")
+
+	description = ""
+
+	with open(classFilePath, "r") as classFile:
+		for line in classFile:
+			if re.match(descPattern, line) :
+				description = line.split(": ")[1]
+				description = re.sub("\n", "", description)
+
+
+	return description
+
+
 #----------------------------------------------------------------------------------------------------- cosinus
 
+def cosine(req,V): # A corriger
+    for i in range (V.shape[1]):
 
+        if (np.linalg.norm(V[:,req])*np.linalg.norm(V[:,i])) == 0 :
+            distance.append(0)
+        else:
+            distance.append(float(np.dot(V[:,req], V[:,i].T) / (np.linalg.norm(V[:,req]) * np.linalg.norm(V[:,i]))))
 
 
 #-----------------------------------------------------------------------------------------------------tfidf calculator
+#def tfidf(matTFIFD,d):
+#    df = ((matTFIFD>0).sum(axis=1))
+#    idf = np.log(d/df)
+#    print(idf.shape)
+#    print(matTFIFD.shape)
+#    matTFIFD = idf*matTFIFD
+    #print(matTFIFD)
 
+# -- Version diagonalisation
 def tfidf(matTFIFD,d):
-    #matTFIFD = matTFIFD.toarray() # pas possible trop de mémoire
+    print("Preparation matTFIFD \n")
     df = ((matTFIFD>0).sum(axis=1)).reshape(-1)
     idf = np.log(d/df)
     idf = np.diagflat(idf)
-    #print(idf)
-    #matTFIFD = matTFIFD*idf
-    #matTFIFD = matTFIFD.T
     matTFIFD = matTFIFD.T.dot(idf).T # Faux à priori, vérifier la kouill'
-
-
-
+    matTFIFD = csc_matrix(matTFIFD)
+    #print(matTFIFD)
+    print("matTFIFD OK \n") # Add a pickle here
+    return matTFIFD
 
 #------------------------------------------------------------------------------------------- sparse matrice preparation
 
@@ -72,7 +120,7 @@ def wordSep(content):
 
 if __name__ == '__main__':
 
-    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Testizi'
+    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
     path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
 
 #---------------- Definitions des variables ----------------------#
@@ -103,6 +151,7 @@ if __name__ == '__main__':
             bigListW = pickle.load( f )
             d = pickle.load( f )
             reqDict = pickle.load( f )
+            V = pickle.load(f)
 
     except (OSError, IOError) as e:
 
@@ -114,35 +163,49 @@ if __name__ == '__main__':
                 wordSep(content)
                 f.close()
                 d += 1
+        dictIdf = OrderedCounter(bigListW)
+        bigListW =  list(set(bigListW)) # Pour enlever les doublons
+        n = len(bigListW)
+        for x in bigListW:
+            dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
+
+        prepMatrix(n,d) # Creation de la matrice
+
+        matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
+        #matF = matF.asfptype() # Cast en float pour le svd
+        matTFIFD = matF # a corriger ici
+        matTFIFD = tfidf(matTFIFD,d)
+        uMatrix,vlp,V = svds(matTFIFD, k = 32) # Réduction SVD
+        V = vlp.reshape(-1,1)*V
+
         with open( "filesContent.p", "wb") as f:
             pickle.dump( bigListD, f )
             pickle.dump( bigListW, f )
             pickle.dump( d, f ) # Créer une fonction pour ça, mais besoin  d'appeler wordSep dedans
             pickle.dump( reqDict, f )
+            pickle.dump( V, f )
 
-    dictIdf = OrderedCounter(bigListW)
-    bigListW =  list(set(bigListW)) # Pour enlever les doublons
-    n = len(bigListW)
-    for x in bigListW:
-        dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
+    req = reqDict[sys.argv[1].upper()] # Récupération de la requête
 
-    prepMatrix(n,d) # Creation de la matrice
 
-    matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
-    matF = matF.asfptype() # Cast en float pour le svd
-    req = matF[:,reqDict[sys.argv[1]]] # Récupération de la requête
-    matTFIFD = matF # a corriger ici
-    tfidf(matTFIFD,d)
-    print('tfidf ok\n')
-    #print(matF)
-    #Calcul du cos
-    uMatrix,vlp,Vt = svds(matTFIFD, k = 2) # Réduction SVD ,
+    # uMatrix a pour dimensions n*k on multiplie par les vlp.
+    distance = []
+    cosine(req,V)
 
-    uMatrix = uMatrix*vlp# uMatrix a pour dimensions n*k on multiplie par les vlp.
-    #print(req.T.shape)
-    req = req.T.dot(uMatrix)
-    print(req.shape)
+    coursesIndexes = np.argsort(distance)[-6:][::-1]
 
-    print('\n\n')
+
+    for i in range(0,5):
+        print(distance[coursesIndexes[i]])
+
+
+    for i in range(0,len(coursesIndexes)):
+        for name , index in reqDict.items():
+            if index == (coursesIndexes[i]):
+                print(name)
+
+    #for i in range(V.shape(1)):
+    #    distances.append(cosine(V[:,req=,V[:,i]))
+
 
     # Faire la requête, transformer bigListW en dictionnaire avec le nombre d'occurences du mot pour récupérer ses values dans le tfidf.
