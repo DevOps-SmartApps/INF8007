@@ -14,26 +14,27 @@ from scipy import linalg
 from scipy.sparse.linalg import inv
 from tqdm import tqdm
 import pickle
+import argparse
 
 
 #----------------------------------------------------------------------------------------------------- print fin
 def nomCours(classCode):
-	titlePattern = re.compile("TitreCours")
-	title = ""
-	with open("PolyHEC/" + classCode + ".txt", "r") as classFile:
-		for line in classFile:
-			if re.match(titlePattern, line) :
-				title = line.split(": ")[1]
-				title = re.sub("\n", "", title)
-	return title
+	titre = ""
+	regexTitre = re.compile("TitreCours")
+	with open("PolyHEC/" + classCode + ".txt", "r") as F:
+		for line in F:
+			if re.match(regexTitre, line) :
+				titre = line.split(": ")[1]
+				titre = re.sub("\n", "", titre)
+	return titre
 
 # Returns the description of a course
 def descriCours(classCode):
-	descPattern = re.compile("DescriptionCours")
 	description = ""
-	with open("PolyHEC/" + classCode + ".txt", "r") as classFile:
-		for line in classFile:
-			if re.match(descPattern, line) :
+	regexDesc = re.compile("DescriptionCours")
+	with open("PolyHEC/" + classCode + ".txt", "r") as F:
+		for line in F:
+			if re.match(regexDesc, line) :
 				description = line.split(": ")[1]
 				description = re.sub("\n", "", description)
 	return description
@@ -108,7 +109,13 @@ def wordSep(content):
 
 if __name__ == '__main__':
 
-    #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file")
+    parser.add_argument("--nbreq", type=int, default=5)
+    args = parser.parse_args()
+
+
     path = 'PolyHEC/'
 
 #---------------- Definitions des variables ----------------------#
@@ -116,10 +123,10 @@ if __name__ == '__main__':
     words = []
     listWReq =[]
 
-    bigListW = []
+    bigListW = [] # Une liste de tous les mots qui seront rencontrés dans les fichiers
     bigListD = [] # Une liste de tous les dictionnaires associés à chaque description de cours
     dictIdf = {}
-    dictIndex = {}
+    dictIndex = {} # Dictionnaire des cours et des indexs associés
     courseDesc = []
     Mdata = []
     Mrow = []
@@ -149,20 +156,19 @@ if __name__ == '__main__':
                 temp = filename.replace('PolyHEC/','')
                 reqDict[temp.replace('.txt','')] = d # Creation d'un dict des fichiers et de leur indices
                 content = f.read()
-                wordSep(content)
+                wordSep(content) #Séparation des mots dans les fichiers
                 f.close()
-                d += 1
+                d += 1 #Compte du nombre de fichiers
         dictIdf = OrderedCounter(bigListW)
         bigListW =  list(set(bigListW)) # Pour enlever les doublons
         n = len(bigListW)
         for x in bigListW:
             dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
 
-        prepMatrix(n,d) # Creation de la matrice
+        prepMatrix(n,d) # Préparation des paramètres de la matrice
 
-        matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d))
-        #matF = matF.asfptype() # Cast en float pour le svd
-        matTFIFD = matF # a corriger ici
+        matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d)) # Création matrice creuse
+        matTFIFD = matF
         matTFIFD = tfidf(matTFIFD,d)
         uMatrix,vlp,V = svds(matTFIFD, k = 32) # Réduction SVD
         V = vlp.reshape(-1,1)*V
@@ -172,28 +178,27 @@ if __name__ == '__main__':
             pickle.dump( bigListW, f )
             pickle.dump( d, f )
             pickle.dump( reqDict, f )
-            pickle.dump( V, f )
+            pickle.dump( V, f ) #Sauvegarde de la matrice TFIDF dans le pickle
 
-    req = reqDict[sys.argv[1].upper()] # Récupération de la requête
+    req = reqDict[args.file.upper()] # Récupération de la requête
 
-    # uMatrix a pour dimensions n*k on multiplie par les vlp.
-    distance = []
+    distance = [] #Liste des distances
     cosine(req,V)
 
-    coursesIndexes = np.argsort(distance)[-6:][::-1]
+    coursesIndexes = np.argsort(distance)[-args.nbreq:][::-1] #Tri des distances
     courseNames = []
 
     for i in range(0,len(coursesIndexes)):
         for name , index in reqDict.items():
             if index == (coursesIndexes[i]):
-                courseNames.append(name)
+                courseNames.append(name) # Récupération des noms de cours dans le dictionnaire
 
-    output = sys.argv[1].upper()
+    output = args.file.upper()
     output = output.split(".")[0] + "_Comp.txt"
     out_F = open(output,"w")
-    out_F.write("Compared class : " + sys.argv[1].lower() + "\n")
-    out_F.write("Titre : " + nomCours(sys.argv[1].upper()) + "\n")
-    out_F.write("Description: " + descriCours(sys.argv[1].upper()) + "\n")
+    out_F.write("Compared class : " + args.file.lower() + "\n")
+    out_F.write("Titre : " + nomCours(args.file.upper()) + "\n")
+    out_F.write("Description: " + descriCours(args.file.upper()) + "\n")
     out_F.write("\n")
 
     for i in range(0,len(coursesIndexes)):

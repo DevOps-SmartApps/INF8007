@@ -1,0 +1,44 @@
+Compared class : stt2700
+Titre : Concepts et methodes en statistique
+Description: Estimation ponctuelle et par intervalle. Tests d'hypotheses. Methodes graphiques. Test du khi-deux. Theorie de la decision et inference bayesienne. Comparaisons de deux echantillons.
+
+stt2700 : 1.0000000000000002
+Titre : Concepts et methodes en statistique
+Description : Estimation ponctuelle et par intervalle. Tests d'hypotheses. Methodes graphiques. Test du khi-deux. Theorie de la decision et inference bayesienne. Comparaisons de deux echantillons.
+
+stt1995 : 0.985917828687491
+Titre : Analyses statistiques
+Description : Statistiques descriptives. Loi normale. Estimation ponctuelle et par intervalle. Tests d'hypotheses. Comparaison entre deux groupes, test du khi-deux. Correlation et regression. Analyse de la variance. Introduction a un progiciel statistique.
+
+mat7181 : 0.9653507393258818
+Titre : Inference statistique II
+Description : Optimalite en theorie des tests
+
+geo1512 : 0.9637721497535865
+Titre : Geographie quantitative 1
+Description : Les donnees geographiques. La composition d'un echantillon. Elements de probabilites et de lois de distribution. La loi normale. Estimation et tests d'hypothese. Comparaison de deux echantillons. Association de deux variables.
+
+bio2041 : 0.9628787217721806
+Titre : Biostatistique 1
+Description : Statistique biologique. Parametres d'une distribution. Lois de distribution. Intervalles de confiance. Theorie de la decision. Comparaison de deux echantillons. Correlation. Analyse de variance. Tests khi-carre. Regression.
+
+mmd1007 : 0.9628361680043112
+Titre : Biostatistique
+Description : Statistiques descriptives. Notions de probabilite et d'echantillonnage. Introduction a l'inference statistique. Tests d'hypothese. Analyse de tableaux de contingence. Correlation et regression. Analyse de variance.
+
+mat2480 : 0.9600310362373787
+Titre : Statistique II
+Description : Theorie statistique de la decision. Decision statistique des hypotheses statistiques. Erreurs de premiere et de deuxieme especes. Tests unilateral et bilateral. Tests sur les proportions. Tests de signification
+
+geo1522 : 0.959985992443753
+Titre : Geographie quantitative 2
+Description : Statistique appliquee a l'analyse de variables geographiques 
+
+sbp1025 : 0.9571307481847402
+Titre : Stat. appliquees aux sc. biopharm.
+Description : Methodes et princ. De base. Applic. en labo. Intro. a la probabilite. Principe de l'estimation et des intervalles de confiance. Tests d'hypothese. Taille d'echantillon. Analyse non-parametrique. Analyse de variance. Regression et correlation.
+
+mat3080 : 0.9539224819694987
+Titre : Statistique I
+Description : Familiariser l'etudiant avec les principales techniques d'estimation et de tests d'hypothese. Statistiques descriptives et theoreme limite central. Etudes des distributions echantillonnales
+
