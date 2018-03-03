@@ -17,7 +17,7 @@ import pickle
 import argparse
 
 
-#----------------------------------------------------------------------------------------------------- print fin
+#-----------------------------------------------------------------------------------------------------  Récupérationd des contenus
 def nomCours(classCode):
 	titre = ""
 	regexTitre = re.compile("TitreCours")
@@ -28,7 +28,7 @@ def nomCours(classCode):
 				titre = re.sub("\n", "", titre)
 	return titre
 
-# Returns the description of a course
+
 def descriCours(classCode):
 	description = ""
 	regexDesc = re.compile("DescriptionCours")
@@ -42,7 +42,7 @@ def descriCours(classCode):
 
 #----------------------------------------------------------------------------------------------------- cosinus
 
-def cosine(req,V): # A corriger
+def cosine(req,V):
     for i in range (V.shape[1]):
 
         if (np.linalg.norm(V[:,req])*np.linalg.norm(V[:,i])) == 0 :
@@ -51,25 +51,13 @@ def cosine(req,V): # A corriger
             distance.append(float(np.dot(V[:,req], V[:,i].T) / (np.linalg.norm(V[:,req]) * np.linalg.norm(V[:,i]))))
 
 
-#-----------------------------------------------------------------------------------------------------tfidf calculator
-#def tfidf(matTFIFD,d):
-#    df = ((matTFIFD>0).sum(axis=1))
-#    idf = np.log(d/df)
-#    print(idf.shape)
-#    print(matTFIFD.shape)
-#    matTFIFD = idf*matTFIFD
-    #print(matTFIFD)
-
-# -- Version diagonalisation
+#-----------------------------------------------------------------------------------------------------tfidf calcul
 def tfidf(matTFIFD,d):
-    print("Preparation matTFIFD \n")
     df = ((matTFIFD>0).sum(axis=1)).reshape(-1)
     idf = np.log(d/df)
     idf = np.diagflat(idf)
-    matTFIFD = matTFIFD.T.dot(idf).T # Faux à priori, vérifier la kouill'
+    matTFIFD = matTFIFD.T.dot(idf).T # Meilleure solution sans np.take. On repasse tout en sparse matrix pour accélérer la suite, pas grave avec le pickle
     matTFIFD = csc_matrix(matTFIFD)
-    #print(matTFIFD)
-    print("matTFIFD OK \n") # Add a pickle here
     return matTFIFD
 
 #------------------------------------------------------------------------------------------- sparse matrice preparation
@@ -79,11 +67,10 @@ def prepMatrix(n,d):
         for key in bigListD[j]:
             Mdata.append(bigListD[j][key])
             Mrow.append(dictIndex[key])
-            #Mrow.append(bigListW.index(key))
         for i in range(0,len(bigListD[j])):
             Mcol.append(j)
 
-#-----------------------------------------------------------------------------------------------------------------parser
+#----------------------------------------------------------------------------------------------------------------- parser
 
 def wordSep(content):
     dict_words = {}
@@ -113,7 +100,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("file")
     parser.add_argument("--nbreq", type=int, default=5)
-    args = parser.parse_args()
+    parser.add_argument("--svd", type=int, default=32) # Ne marche que lorsqu'il n'y a pas de pickle , améliorable
+    args = parser.parse_args() # Récipération des argiments pour modifier nombre de comparaisons
 
 
     path = 'PolyHEC/'
@@ -139,7 +127,7 @@ if __name__ == '__main__':
     class OrderedCounter(Counter, OrderedDict): # Pour que le Counter garde l'ordre de lecture
         pass
 
-#------------------- Traitement de données --------------------#
+#------------------- Gestion des pickles --------------------#
     try:
         with open( "filesContent.p", "rb") as f:
             bigListD = pickle.load( f )
@@ -170,7 +158,7 @@ if __name__ == '__main__':
         matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d)) # Création matrice creuse
         matTFIFD = matF
         matTFIFD = tfidf(matTFIFD,d)
-        uMatrix,vlp,V = svds(matTFIFD, k = 32) # Réduction SVD
+        uMatrix,vlp,V = svds(matTFIFD, k = args.svd) # Réduction SVD
         V = vlp.reshape(-1,1)*V
 
         with open("filesContent.p", "wb") as f:
@@ -180,12 +168,14 @@ if __name__ == '__main__':
             pickle.dump( reqDict, f )
             pickle.dump( V, f ) #Sauvegarde de la matrice TFIDF dans le pickle
 
+#---------------- Traitement normal avec ou sans pickle----------------------#
+
     req = reqDict[args.file.upper()] # Récupération de la requête
 
     distance = [] #Liste des distances
     cosine(req,V)
 
-    coursesIndexes = np.argsort(distance)[-args.nbreq:][::-1] #Tri des distances
+    coursesIndexes = np.argsort(distance)[-args.nbreq:][::-1] # Tri des distances
     courseNames = []
 
     for i in range(0,len(coursesIndexes)):
