@@ -1,0 +1,28 @@
+Compared class : mat1720
+Titre : Probabilites
+Description: Espace de probabilite. Analyse combinatoire. Probabilite conditionnelle. Independance. Variable aleatoire. Fonction de repartition et fonction generatrice. Esperance mathematique. Loi faible des grands nombres. Theoreme limite central.
+
+mat1720 : 1.0000000000000002
+Titre : Probabilites
+Description : Espace de probabilite. Analyse combinatoire. Probabilite conditionnelle. Independance. Variable aleatoire. Fonction de repartition et fonction generatrice. Esperance mathematique. Loi faible des grands nombres. Theoreme limite central.
+
+mat7070 : 0.9702927463632943
+Titre : Mesure et probabilites
+Description : Tribus et variables aleatoires. Theorie de l'integration
+
+mat5190 : 0.9589567691894304
+Titre : Introduction a la topologie
+Description : Faire la genese de divers concepts topologiques a partir de l'analyse et les illustrer a l'aide de quelques exemples geometriques. Introduire aux premiers outils de la topologie algebrique. Espaces metriques et topologiques. Applications continues. Topologie induite, topologie produit et topologie quotient. Connexite et compacite, theoremes de Jordan et de Tychonoff, theoreme de Baire. Homotopie, groupe fondamental, exemples, classification des surfaces. Revetements, proprietes et applications. Complexes simpliciaux, realisation geometrique, homologie simpliciale et methodes de calcul, theoremes de Brouwer et de Borsuk-Ulam.
+
+mat4010 : 0.9561206138287547
+Titre : Analyse III
+Description : Poursuivre l'etude des espaces de fonctions et des operateurs lineaires sur ces espaces du point de vue lineaire et topologique. Definitions et exemples d'espaces de Banach et de Hilbert. Theoreme du vecteur minimisant, theoreme de representation de Riesz, bases orthogonales, orthonormales. Polynomes orthogonaux. Series de Fourier abstraites, convergence des series de Fourier, theoreme de Fejer. Espaces de Banach
+
+mat5071 : 0.955635616287527
+Titre : Probabilites II
+Description : Presentation des notions fondamentales de la theorie axiomatique des probabilites. Clarification des concepts jusqu'alors traites de facon moins formelle. Revision approfondie des notions de probabilite. Tribu d'evenements. Fonctions de repartition, integrale de Stieljes. Convergence en probabilite. Lois des grands nombres. Lemme de Borel-Cantelli. Loi forte des grands nombres. Fonctions caracteristiques
+
+mat7010 : 0.9553671406569764
+Titre : Analyse fonctionnelle et harmonique
+Description : Definition et proprietes elementaires des espaces de Banach et de Hilbert. Applications lineaires bornees. Theoreme de Hahn-Banach. Theoreme de Banach-Steinhaus. Convexites. Operateurs compacts. Algebre de Banach. Theorie de Gelfand. Analyse harmonique sur les groupes commutatifs localement compacts.
+

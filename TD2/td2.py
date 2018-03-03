@@ -18,36 +18,24 @@ import pickle
 
 #----------------------------------------------------------------------------------------------------- print fin
 def nomCours(classCode):
-	classFilePath = "PolyHEC/" + sys.arv[1].upper() + ".txt"
-
 	titlePattern = re.compile("TitreCours")
-
 	title = ""
-
-	with open(classFilePath, "r") as classFile:
+	with open("PolyHEC/" + classCode + ".txt", "r") as classFile:
 		for line in classFile:
 			if re.match(titlePattern, line) :
 				title = line.split(": ")[1]
 				title = re.sub("\n", "", title)
-
-
 	return title
 
 # Returns the description of a course
 def descriCours(classCode):
-	classFilePath = "PolyHEC/" + sys.arv[1].upper() + ".txt"
-
 	descPattern = re.compile("DescriptionCours")
-
 	description = ""
-
-	with open(classFilePath, "r") as classFile:
+	with open("PolyHEC/" + classCode + ".txt", "r") as classFile:
 		for line in classFile:
 			if re.match(descPattern, line) :
 				description = line.split(": ")[1]
 				description = re.sub("\n", "", description)
-
-
 	return description
 
 
@@ -121,7 +109,7 @@ def wordSep(content):
 if __name__ == '__main__':
 
     #path = '/home/corentin/Maitrise/Cours/INF8007/TD2/Test'
-    path = '/home/corentin/Maitrise/Cours/INF8007/TD2/PolyHEC'
+    path = 'PolyHEC/'
 
 #---------------- Definitions des variables ----------------------#
     stemmer = SnowballStemmer('french')
@@ -155,9 +143,10 @@ if __name__ == '__main__':
 
     except (OSError, IOError) as e:
 
+        #for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
         for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
-            with open(filename) as f: # No need to specify 'r': this is the default.
-                temp = filename.replace('%s/' % path,'')
+            with open(filename) as f:
+                temp = filename.replace('PolyHEC/','')
                 reqDict[temp.replace('.txt','')] = d # Creation d'un dict des fichiers et de leur indices
                 content = f.read()
                 wordSep(content)
@@ -178,34 +167,39 @@ if __name__ == '__main__':
         uMatrix,vlp,V = svds(matTFIFD, k = 32) # Réduction SVD
         V = vlp.reshape(-1,1)*V
 
-        with open( "filesContent.p", "wb") as f:
+        with open("filesContent.p", "wb") as f:
             pickle.dump( bigListD, f )
             pickle.dump( bigListW, f )
-            pickle.dump( d, f ) # Créer une fonction pour ça, mais besoin  d'appeler wordSep dedans
+            pickle.dump( d, f )
             pickle.dump( reqDict, f )
             pickle.dump( V, f )
 
     req = reqDict[sys.argv[1].upper()] # Récupération de la requête
-
 
     # uMatrix a pour dimensions n*k on multiplie par les vlp.
     distance = []
     cosine(req,V)
 
     coursesIndexes = np.argsort(distance)[-6:][::-1]
-
-
-    for i in range(0,5):
-        print(distance[coursesIndexes[i]])
-
+    courseNames = []
 
     for i in range(0,len(coursesIndexes)):
         for name , index in reqDict.items():
             if index == (coursesIndexes[i]):
-                print(name)
+                courseNames.append(name)
 
-    #for i in range(V.shape(1)):
-    #    distances.append(cosine(V[:,req=,V[:,i]))
+    output = sys.argv[1].upper()
+    output = output.split(".")[0] + "_Comp.txt"
+    out_F = open(output,"w")
+    out_F.write("Compared class : " + sys.argv[1].lower() + "\n")
+    out_F.write("Titre : " + nomCours(sys.argv[1].upper()) + "\n")
+    out_F.write("Description: " + descriCours(sys.argv[1].upper()) + "\n")
+    out_F.write("\n")
 
+    for i in range(0,len(coursesIndexes)):
+        out_F.write(courseNames[i].lower() + " : " + str(distance[coursesIndexes[i]]) + "\n")
+        out_F.write("Titre : " + nomCours(courseNames[i]) + "\n")
+        out_F.write("Description : " + descriCours(courseNames[i]) + "\n")
+        out_F.write("\n")
 
-    # Faire la requête, transformer bigListW en dictionnaire avec le nombre d'occurences du mot pour récupérer ses values dans le tfidf.
+    out_F.close()
