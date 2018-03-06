@@ -1,0 +1,2 @@
+TitreCours: Managerial Decision-making
+DescriptionCours: COURSE DESCRIPTION Decision-making is a quintessential aspect of management, but the manager whose role it is to make decisions is confronted with a difficult task. With the development of ever more sophisticated technologies, the amount of information (reliable or not) available to managers is often overwhelming 

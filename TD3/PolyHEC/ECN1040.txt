@@ -1,0 +1,2 @@
+TitreCours: Introduction a la microeconomie
+DescriptionCours: Elements de finance : decisions d'epargne et marches financiers; concurrence imparfaite : progres technologique et informations imparfaites; role de l'Etat : environnement, efficacite, equite.

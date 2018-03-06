@@ -1,0 +1,2 @@
+TitreCours: Equations differentielles
+DescriptionCours: Equations et systemes du premier ordre. Existence et unicite. Dependance continue par rapport a la condition initiale. Methodes analytiques, qualitatives et numeriques. Systemes lineaires et non lineaires. Dynamique discrete.

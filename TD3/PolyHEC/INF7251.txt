@@ -1,0 +1,2 @@
+TitreCours: Integration des nouvelles technologies de l
+DescriptionCours: Systemes integres dans les organisations. Etude des normes pour l'echange de documents electroniques. Fonctionnalite multimedia. Importance et etude des interfaces personne-machine. Etude de faisabilite. Evaluation: analyse cout/benefices. Impacts humains et sociaux.

@@ -1,0 +1,2 @@
+TitreCours: Introduction aux modernites
+DescriptionCours: Etude des textes modernes et contemporains appartenant a differents genres, du XIXe siecle aux formes les plus actuelles de la litterature.

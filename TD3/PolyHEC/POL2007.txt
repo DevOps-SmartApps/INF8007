@@ -1,0 +1,2 @@
+TitreCours: Institutions politiques comparees
+DescriptionCours: Les grands types de regimes politiques. Election et referendums. Constitutions, declarations de droits. Etats unitaires et federaux. Regimes parlementaires, presidentiels et semi-presidentiels. Gouvernements, parlements et tribunaux.

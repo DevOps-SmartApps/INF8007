@@ -1,0 +1,24 @@
+Compared class : apa5001
+Titre : Travail dirige
+Description: Sous la direction d'un membre du corps professoral, realisation d'un travail visant a approfondir certaines connaissances ou certaines habiletes inherentes a l'architecture de paysage.
+
+apa5000 : 1.0000000000000002
+Titre : Travail dirige
+Description : Sous la direction d'un membre du corps professoral, realisation d'un travail visant a approfondir certaines connaissances ou certaines habiletes inherentes a l'architecture de paysage.
+
+apa5002 : 1.0
+Titre : Travail dirige
+Description : Sous la direction d'un membre du corps professoral, realisation d'un travail visant a approfondir certaines connaissances ou certaines habiletes inherentes a l'architecture de paysage.
+
+apa5001 : 1.0
+Titre : Travail dirige
+Description : Sous la direction d'un membre du corps professoral, realisation d'un travail visant a approfondir certaines connaissances ou certaines habiletes inherentes a l'architecture de paysage.
+
+tem6310 : 0.9306488988703314
+Titre : Projet
+Description : Cours synthese de mise en pratique des connaissances acquises anterieurement. Il s'agit d'un travail personnel ou de groupe au cours duquel l'etudiant doit realiser, sous la direction d'un professeur, un projet pratique comprenant une analyse detaillee d'un probleme et en formuler les conclusions. Redaction d'un rapport technique.
+
+dan7971 : 0.9108264822447553
+Titre : Projet d
+Description : Interface des concepts abordes et des outils developpes a l'interieur du DESS. Liens entre theorie et pratique. Elaboration ecrite d'un travail final de synthese presentant une application d'un ou de plusieurs aspects developpes durant la scolarite et faisant l'objet d'une presentation devant les pairs. Pour l'option en creation dans le DESS en danse
+

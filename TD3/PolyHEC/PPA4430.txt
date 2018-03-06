@@ -1,0 +1,2 @@
+TitreCours: Eleves doues au secondaire
+DescriptionCours: Caracteristiques cognitives, affectives et motivationnelles des eleves doues du secondaire. Evaluation des capacites et des besoins. Modeles d'organisation scolaires particuliers et approches pedagogiques specifiques.

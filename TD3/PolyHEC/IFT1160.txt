@@ -1,0 +1,2 @@
+TitreCours: Programmation avec le langage C
+DescriptionCours: Perfectionnement en programmation. Etude du langage C avec applications.

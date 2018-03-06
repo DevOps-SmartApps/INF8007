@@ -1,0 +1,2 @@
+TitreCours: Theories esthetiques
+DescriptionCours: Etude des courants et des problemes representatifs de l'esthetique philosophique, du 18e siecle a aujourd'hui.

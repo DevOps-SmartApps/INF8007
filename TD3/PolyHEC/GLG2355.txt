@@ -1,0 +1,2 @@
+TitreCours: Introduction a la geophysique appliquee
+DescriptionCours: Elements de geophysique appliquee. Champ d'application de la geophysique appliquee. Elements des differentes methodes utilisees : gravimetrique, magnetique, radiometrique, sismique, electriques et electromagnetiques.

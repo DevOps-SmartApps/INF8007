@@ -1,0 +1,2 @@
+TitreCours: Piano jazz 3
+DescriptionCours: Etude de la technique de l'instrument et de son repertoire.

@@ -1,0 +1,2 @@
+TitreCours: Optique quantique
+DescriptionCours: Rayonnement classique, rayonnement quantique. Photon. Quantification du champ monomode et multimode. Fluctuations du vide. Etats nombre. Etats coherents. Etats comprimes. Tests et applications. Paradoxe d'Einstein-Podolsky-Rosen. Inegalites de Bell. Etats intriques. Teleportation quantique. Cryptographie quantique. Non-demolition quantique. Notions d'electrodynamique quantique. Diagrammes de Feynman. Applications de l'optique quantique.

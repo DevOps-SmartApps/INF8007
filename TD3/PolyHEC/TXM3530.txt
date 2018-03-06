@@ -1,0 +1,2 @@
+TitreCours: Evaluation en toxicomanie
+DescriptionCours: Capacite a effectuer une entrevue d'accueil et d'evaluation. Utilisation d'outils de depistage et d'evaluation en toxicomanie. Evaluation de situations de crise.

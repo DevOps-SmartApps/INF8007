@@ -1,0 +1,2 @@
+TitreCours: Dessin
+DescriptionCours: Etude et perception des structures, formes, volumes, mouvements et gravitation de modeles vivants.

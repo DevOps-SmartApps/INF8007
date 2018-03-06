@@ -1,0 +1,2 @@
+TitreCours: Soutien nutritionnel
+DescriptionCours: Etude des diverses approches de soutien nutritionnel disponibles pour la clientele adulte et pediatrique. Elaboration et suivi du plan de soins nutritionnels, incluant la voie d'alimentation selon diverses pathologies. Etude de cas.

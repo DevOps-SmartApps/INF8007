@@ -1,0 +1,2 @@
+TitreCours: Procedes chimiques
+DescriptionCours: Etude des phenomenes et des principes de fonctionnement des procedes chimiques. Bilan de matiere et d'energie. Etude de l'evaporation, la distillation, le sechage, la filtration, l'extraction et l'absorption.

@@ -1,0 +1,2 @@
+TitreCours: Evolution des concepts en physique
+DescriptionCours: La physique pregalileenne. Copernic, Kepler, Beeckman, Descartes, Huyghens, Newton, Mach, Einstein.

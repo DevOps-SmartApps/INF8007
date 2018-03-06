@@ -1,0 +1,2 @@
+TitreCours: Version 2
+DescriptionCours: Technique de traduction et son application a la traduction de textes litteraires. Etude contrastive de la stylistique du russe et du francais. Etude des particularites culturelles refletees dans les textes.

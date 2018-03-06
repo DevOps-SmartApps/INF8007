@@ -1,0 +1,2 @@
+TitreCours: Microeconomie
+DescriptionCours: Ce cours comporte trois parties principales.&nbsp; La premiere porte sur les principes fondamentaux de la microeconomie classique : determination des prix et des quantites, mecanisme de marche, efficacite dans l'allocation des ressources. Dans cette premiere partie, les differents modeles de base 

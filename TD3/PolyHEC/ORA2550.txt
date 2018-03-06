@@ -1,0 +1,2 @@
+TitreCours: Bilan audiologique - Enfant
+DescriptionCours: Etiologie, notions epidemiologiques, pathophysiologiques, deficience, incapacite et desavantage relies aux troubles de l'audition chez l'enfant. Evaluation audiologique aupres de cette population.

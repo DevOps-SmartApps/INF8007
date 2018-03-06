@@ -1,0 +1,2 @@
+TitreCours: Droit bancaire
+DescriptionCours: Etude des principaux rapports juridiques entre les banques et leurs clients. Effets de commerce, comptes en banque, credits consentis par les banques, suretes accordees aux banques.

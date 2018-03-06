@@ -1,0 +1,2 @@
+TitreCours: L'Etat et l'economie
+DescriptionCours: Les instruments d'intervention economique de l'Etat. Planification et developpement. Politique industrielle et scientifique. Privatisation et dereglementation.
