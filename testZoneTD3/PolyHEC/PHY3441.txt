@@ -1,0 +1,2 @@
+TitreCours: Electromagnetisme avance
+DescriptionCours: Milieux dissipatifs, permittivite complexe. Guides d'onde. Rayonnement. Formulation covariante de l'electromagnetisme.

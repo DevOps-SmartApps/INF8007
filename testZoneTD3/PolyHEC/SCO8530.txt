@@ -1,0 +1,2 @@
+TitreCours: Gestion
+DescriptionCours: Etude des consequences sur les entreprises et les organisations de la reglementation en environnement: impacts sur la gestion, la comptabilite et la verification environnementales. Normalisation ISO en environnement. Couts environnementaux: pollution, gestion des dechets, pluies acides. Etude d'impacts et role des professionnels de la comptabilite et de la verification.

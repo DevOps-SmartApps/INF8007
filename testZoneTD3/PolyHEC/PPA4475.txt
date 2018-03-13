@@ -1,0 +1,2 @@
+TitreCours: Eleves en difficulte de comportement 1
+DescriptionCours: Difficultes comportementales au cours de l'enfance et de l'adolescence. Manifestations, evaluation, evolution. Analyse des principales strategies d'intervention favorisant l'adaptation scolaire et sociale de l'eleve.

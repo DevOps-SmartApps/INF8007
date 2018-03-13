@@ -1,0 +1,2 @@
+TitreCours: Langues commerciale et economique
+DescriptionCours: Etude en contexte bilingue des notions, de la terminologie et de la phraseologie propres aux langues C/E. Caracteristiques linguistiques des discours C/E. Demarche d'apprentissage et outils specialises. Problemes specifiques de transfert.

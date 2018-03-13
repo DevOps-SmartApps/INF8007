@@ -1,0 +1,2 @@
+TitreCours: L
+DescriptionCours: Le cours vise a introduire certains concepts fondamentaux dans le domaine de l'evaluation des actions de societes, et a developper les capacites d'analyse ainsi que le jugement dans la decision d

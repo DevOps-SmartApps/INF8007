@@ -1,0 +1,2 @@
+TitreCours: Tendances du secteur des services financiers
+DescriptionCours: Ce cours s'adresse aux etudiants qui 

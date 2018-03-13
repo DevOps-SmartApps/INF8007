@@ -1,0 +1,2 @@
+TitreCours: Gestion du changement
+DescriptionCours: Ce cours procure a l'etudiant une comprehension approfondie du changement organisationnel et l'initie aux methodes et aux techniques qui permettent de le realiser. Le cours permet egalement d'identifier et de comprendre les differentes reactions des personnes face au changement, de faciliter la mise en 

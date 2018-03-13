@@ -1,0 +1,2 @@
+TitreCours: Exploitation en souterrain
+DescriptionCours: Etude des caracteristiques des principales methodes d'abattage utilisees en souterrain. Methodes d'analyse simplifiee d'un gisement quant a son exploitation en fosse ou en souterrain. Dimensionnement des ouvrages et selection des equipements. Calculs des quantites, des equipements et des couts relies a l'exploitation en souterrain. Foncage de puits et de rampes. Reseaux de services : eau, air comprime. Conception de treuils. Etude des methodes de remblayage des excavations.

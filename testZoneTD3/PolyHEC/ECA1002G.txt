@@ -1,0 +1,2 @@
+TitreCours: Valvulopathies et fonction cardiaque
+DescriptionCours: Evaluation des valves atrioventriculaires, semilunaires, de leurs pathologies, et des protheses valvulaires. Etude de la fonction cardiaque systolique, diastolique et des cardiopathies. Evaluation du pericarde et des masses cardiaques.

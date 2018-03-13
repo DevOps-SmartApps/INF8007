@@ -1,0 +1,2 @@
+TitreCours: Theorie de la representation theatrale
+DescriptionCours: Etude des systemes formels et symboliques de la representation theatrale a partir de realisations de metteurs en scene.

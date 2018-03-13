@@ -1,0 +1,2 @@
+TitreCours: Systemique/processus de guerison en Echo
+DescriptionCours: Concepts et theories specifiques au modele Echo. A partir de situations cliniques, pratiques d'intervention permettant la dynamisation du processus de guerison.

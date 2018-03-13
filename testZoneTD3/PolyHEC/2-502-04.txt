@@ -1,0 +1,2 @@
+TitreCours: Planification et controle de la production et des stocks
+DescriptionCours: La planification et le controle de la production et des stocks (PCPS) sont au c

@@ -1,0 +1,2 @@
+TitreCours: Physicochimie generale 1B
+DescriptionCours: Solutions. Equilibres de phases. Phenomenes de surface et colloides. Electrochimie. Cinetique chimique.

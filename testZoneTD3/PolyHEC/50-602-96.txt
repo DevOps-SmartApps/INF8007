@@ -1,0 +1,2 @@
+TitreCours: Traitement et analyse des donnees
+DescriptionCours: L'un des defis majeurs en administration des affaires est de comprendre la variabilite. Le fait qu'un systeme affiche des resultats variables n'indique pas necessairement une sur ou sous performance car une bonne partie de cette variabilite est due au simple fait du hasard. L'analyse de la variabilite est au c

@@ -1,0 +1,2 @@
+TitreCours: Structure et evolution stellaires
+DescriptionCours: Equations fondamentales de la structure stellaire. Conditions physiques a l'interieur des etoiles. Thermodynamique. Transport d'energie. Reactions thermonucleaires. Chaines de reactions nucleaires. Elements d'evolution stellaire.

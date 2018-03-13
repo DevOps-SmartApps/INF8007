@@ -1,0 +1,2 @@
+TitreCours: Mecanique et physique moderne
+DescriptionCours: Concepts fondamentaux de la mecanique. Equations du mouvement. Principes de conservation. Oscillations et ondes. Elements de relativite et de physique quantique.

@@ -1,0 +1,2 @@
+TitreCours: Synoptique II
+DescriptionCours: Etude de l'evolution des systemes synoptiques. Divergence dans la couche limite et l'atmosphere libre. Tendance de pression en surface et de geopotentiel en altitude. Mouvement vertical dans des systemes barotropes et baroclines. Equations d'omega et de developpement. Evolution des systemes: frontogenese et intensification. Presentation des cas courants.

@@ -1,0 +1,2 @@
+TitreCours: Ethique et deontologie appliquee
+DescriptionCours: Etude des enjeux ethiques lies a la pratique, aux contextes d'intervention et aux changements sociaux. Analyse critique du code deontologique de l'OPTSQ, notamment. Analyse des situations de pratique concretes.

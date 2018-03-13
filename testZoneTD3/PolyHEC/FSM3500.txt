@@ -1,0 +1,2 @@
+TitreCours: Histoire des sciences et des technologies
+DescriptionCours: Evolution des concepts et des theories scientifiques. Etude des lois de la nature. Les etapes de la methode experimentale. Evolution des technologies et influence des technologies sur l'evolution des sciences. La place des sciences dans la connaissance humaine. Impact des sciences et des technologies sur l'humain et son environnement: aspects ethiques, sociaux, economiques, ecologiques.

@@ -1,0 +1,2 @@
+TitreCours: Ecologie
+DescriptionCours: Etude de la problematique environnementale telle que proposee par les economistes et les ecologistes. Evaluation monetaire et non monetaire de l'environnement. Concept d'etat stationnaire et notions d'ecodeveloppement. Societes ecologiques: de l'economie politique a l'ecologie politique.

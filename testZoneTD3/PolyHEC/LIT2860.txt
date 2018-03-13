@@ -1,0 +1,2 @@
+TitreCours: Litterature des Etats
+DescriptionCours: S'initier a la litterature americaine par la lecture et l'analyse d'un choix d'oeuvres marquantes de divers genres, epoques et tendances. Principaux jalons du developpement de la litterature des Etats-Unis, depuis l'epoque coloniale jusqu'a aujourd'hui. Evocation des systemes ideologiques et culturels ayant marque la pensee americaine depuis le XVIIIe siecle. Etude des formes et des esthetiques.

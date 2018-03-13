@@ -1,0 +1,2 @@
+TitreCours: Hautbois baroque 3
+DescriptionCours: Etude de la technique de l'instrument et de son repertoire.

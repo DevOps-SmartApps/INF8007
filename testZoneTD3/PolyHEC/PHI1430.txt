@@ -1,0 +1,2 @@
+TitreCours: Ethique et politique
+DescriptionCours: Introduction thematique a la philosophie morale et politique. Lecture d'auteurs classiques et contemporains.

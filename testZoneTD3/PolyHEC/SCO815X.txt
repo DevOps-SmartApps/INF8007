@@ -1,0 +1,2 @@
+TitreCours: Cours a themes variables
+DescriptionCours: Etude approfondie de themes relies aux sciences comptables.

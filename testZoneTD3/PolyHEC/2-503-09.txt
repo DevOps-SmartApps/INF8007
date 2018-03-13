@@ -1,0 +1,2 @@
+TitreCours: Gestion des achats
+DescriptionCours: Ce cours vise a fournir aux etudiants une bonne formation de base en gestion des approvisionnements en approfondissant l'activite qui en constitue le c

@@ -1,0 +1,2 @@
+TitreCours: Elements de grammaire russe
+DescriptionCours: Elements fondamentaux de grammaire russe. Exercices pratiques sur les connaissances acquises.
