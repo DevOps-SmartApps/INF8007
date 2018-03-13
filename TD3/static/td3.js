@@ -21,11 +21,55 @@ var nRecommendations = 5;
 /* TO MODIFY!!! */
 /****************/
 
-function getClassData(classId, callback) {}
+function getClassData(classId, callback) {
 
-function getClassInfo(classId, callback) {}
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+  let response = JSON.parse(this.responseText);
+  callback(response.id, response.title, response.description);
+  }
+  else if (this.readyState == 4 && this.status == 400) {
+  showError(this.responseText);
+  }
+  };
+  url = "/courses/" + classId
+  xhttp.open('GET', url, true); // définir url
+  xhttp.send();
+}
 
-function getRecommendations(classId, callback) {}
+function getClassInfo(classId, callback) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+  let response = JSON.parse(this.responseText);
+  callback(response.combined, response.ascii, response.tokenised, response.stemmed, response.indices);
+  }
+  //combined titre+descrition en une seule srting  ascii idem, tokenised : list des mots de combines  stemmed : stem(tokenised), indices : de la matrice tfidf
+  else if (this.readyState == 4 && this.status == 400) {
+  showError(this.responseText);
+  }
+  };
+  url = "/courses/" + classId
+  xhttp.open('GET', url, true);
+  xhttp.send();
+}
+
+function getRecommendations(classId, callback) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+  let response = JSON.parse(this.responseText);
+  callback(response.recommendationsData);
+  }
+  else if (this.readyState == 4 && this.status == 400) {
+  showError(this.responseText);
+  }
+  };
+  url = "/courses/" + classId
+  xhttp.open('GET', url, true); // définir url
+  xhttp.send();
+}
 
 /******************/
 /* view functions */
@@ -165,7 +209,7 @@ function updateMainClass(id, title, description) {
   mainClassDataView(id, title, description);
 }
 
-function updateMainClassInfo(combined, ascii, tokenised, stemmed, indices) {
+function updateMainClassInfo(combined, ascii, tokenised, stemmed, indices) { // Appel des requêtes
   classInfo = {
     combined: combined,
     ascii: ascii,

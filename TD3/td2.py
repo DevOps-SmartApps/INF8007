@@ -16,6 +16,13 @@ from tqdm import tqdm
 import pickle
 import argparse
 
+#def classInfo(classCode):
+
+def recom(classCode)
+
+def request(classCode):
+	request_dict = {'id': classCode, 'title': nomCours(classCode.upper()), 'description': descriCours(classCode.upper())}
+	return request_dict
 
 #-----------------------------------------------------------------------------------------------------  Récupération des contenus
 def nomCours(classCode):
