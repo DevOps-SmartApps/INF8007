@@ -66,7 +66,7 @@ function getRecommendations(classId, callback) {
   showError(this.responseText);
   }
   };
-  url = "/courses/" + classId
+  url = "/recom/" + classId + '?n=' + nRecommendations
   xhttp.open('GET', url, true); // définir url
   xhttp.send();
 }

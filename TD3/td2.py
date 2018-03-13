@@ -16,13 +16,111 @@ from tqdm import tqdm
 import pickle
 import argparse
 
-#def classInfo(classCode):
-
-def recom(classCode)
-
 def request(classCode):
+# Liste
 	request_dict = {'id': classCode, 'title': nomCours(classCode.upper()), 'description': descriCours(classCode.upper())}
 	return request_dict
+
+def recom(classCode):
+	path = 'PolyHEC/'
+
+	#---------------- Definitions des variables ----------------------#
+	stemmer = SnowballStemmer('french')
+	words = []
+	listWReq =[]
+
+	bigListW = [] # Une liste de tous les mots qui seront rencontrés dans les fichiers
+	bigListD = [] # Une liste de tous les dictionnaires associés à chaque description de cours
+	dictIdf = {}
+	dictIndex = {} # Dictionnaire des cours et des indexs associés
+	courseDesc = []
+	Mdata = []
+	Mrow = []
+	Mcol = []
+	d = 0
+	n = 0
+
+	reqDict = {}
+
+	class OrderedCounter(Counter, OrderedDict): # Pour que le Counter garde l'ordre de lecture
+		pass
+
+
+	#------------------- Gestion des pickles --------------------#
+	try:
+		with open( "filesContent.p", "rb") as f:
+			bigListD = pickle.load( f )
+			bigListW = pickle.load( f )
+			d = pickle.load( f )
+			reqDict = pickle.load( f )
+			V = pickle.load(f)
+
+	except (OSError, IOError) as e:
+
+		#for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
+		for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
+			with open(filename) as f:
+				temp = filename.replace('PolyHEC/','')
+				reqDict[temp.replace('.txt','')] = d # Creation d'un dict des fichiers et de leur indices
+				content = f.read()
+				wordSep(content) #Séparation des mots dans les fichiers
+				f.close()
+				d += 1 #Compte du nombre de fichiers
+		dictIdf = OrderedCounter(bigListW)
+		bigListW =  list(set(bigListW)) # Pour enlever les doublons
+		n = len(bigListW)
+		for x in bigListW:
+			dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
+
+		prepMatrix(n,d) # Préparation des paramètres de la matrice
+
+		matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d)) # Création matrice creuse
+		matTFIFD = matF
+		matTFIFD = tfidf(matTFIFD,d)
+		uMatrix,vlp,V = svds(matTFIFD, k = args.svd) # Réduction SVD
+		V = vlp.reshape(-1,1)*V
+
+		with open("filesContent.p", "wb") as f:
+			pickle.dump( bigListD, f )
+			pickle.dump( bigListW, f )
+			pickle.dump( d, f )
+			pickle.dump( reqDict, f )
+			pickle.dump( V, f ) #Sauvegarde de la matrice TFIDF dans le pickle
+
+
+
+	parser = argparse.ArgumentParser()
+	parser.add_argument("file")
+	parser.add_argument("--nbreq", type=int, default=5)
+	parser.add_argument("--svd", type=int, default=32) # Ne marche que lorsqu'il n'y a pas de pickle , améliorable
+	args = parser.parse_args() # Récipération des argiments pour modifier nombre de comparaisons
+
+
+
+	#---------------- Traitement normal avec ou sans pickle----------------------#
+
+	req = reqDict[args.file.upper()] # Récupération de la requête
+
+	distance = [] #Liste des distances
+	cosine(req,V)
+	recommendationsData = []
+
+	coursesIndexes = np.argsort(distance)[-args.nbreq:][::-1] # Tri des distances
+	courseNames = []
+
+	for i in range(0,len(coursesIndexes)):
+		for name , index in reqDict.items():
+			if index == (coursesIndexes[i]):
+				courseNames.append(name) # Récupération des noms de cours dans le dictionnaire
+
+	for i in range(0,len(courseNames)):
+		recomList.append(nomCours(courseNames[i]))
+		recomList[i]['similarity']=distance[i]
+
+	print(recommendationsData)
+	return recommendationsData
+
+
 
 #-----------------------------------------------------------------------------------------------------  Récupération des contenus
 def nomCours(classCode):
@@ -104,91 +202,6 @@ def wordSep(content):
 if __name__ == '__main__':
 
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("file")
-    parser.add_argument("--nbreq", type=int, default=5)
-    parser.add_argument("--svd", type=int, default=32) # Ne marche que lorsqu'il n'y a pas de pickle , améliorable
-    args = parser.parse_args() # Récipération des argiments pour modifier nombre de comparaisons
-
-
-    path = 'PolyHEC/'
-
-#---------------- Definitions des variables ----------------------#
-    stemmer = SnowballStemmer('french')
-    words = []
-    listWReq =[]
-
-    bigListW = [] # Une liste de tous les mots qui seront rencontrés dans les fichiers
-    bigListD = [] # Une liste de tous les dictionnaires associés à chaque description de cours
-    dictIdf = {}
-    dictIndex = {} # Dictionnaire des cours et des indexs associés
-    courseDesc = []
-    Mdata = []
-    Mrow = []
-    Mcol = []
-    d = 0
-    n = 0
-
-    reqDict = {}
-
-    class OrderedCounter(Counter, OrderedDict): # Pour que le Counter garde l'ordre de lecture
-        pass
-
-#------------------- Gestion des pickles --------------------#
-    try:
-        with open( "filesContent.p", "rb") as f:
-            bigListD = pickle.load( f )
-            bigListW = pickle.load( f )
-            d = pickle.load( f )
-            reqDict = pickle.load( f )
-            V = pickle.load(f)
-
-    except (OSError, IOError) as e:
-
-        #for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
-        for filename in tqdm(glob.glob(os.path.join(path, '*.txt'))):
-            with open(filename) as f:
-                temp = filename.replace('PolyHEC/','')
-                reqDict[temp.replace('.txt','')] = d # Creation d'un dict des fichiers et de leur indices
-                content = f.read()
-                wordSep(content) #Séparation des mots dans les fichiers
-                f.close()
-                d += 1 #Compte du nombre de fichiers
-        dictIdf = OrderedCounter(bigListW)
-        bigListW =  list(set(bigListW)) # Pour enlever les doublons
-        n = len(bigListW)
-        for x in bigListW:
-            dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
-
-        prepMatrix(n,d) # Préparation des paramètres de la matrice
-
-        matF = csr_matrix((Mdata, (Mrow, Mcol)), shape=(n, d)) # Création matrice creuse
-        matTFIFD = matF
-        matTFIFD = tfidf(matTFIFD,d)
-        uMatrix,vlp,V = svds(matTFIFD, k = args.svd) # Réduction SVD
-        V = vlp.reshape(-1,1)*V
-
-        with open("filesContent.p", "wb") as f:
-            pickle.dump( bigListD, f )
-            pickle.dump( bigListW, f )
-            pickle.dump( d, f )
-            pickle.dump( reqDict, f )
-            pickle.dump( V, f ) #Sauvegarde de la matrice TFIDF dans le pickle
-
-#---------------- Traitement normal avec ou sans pickle----------------------#
-
-    req = reqDict[args.file.upper()] # Récupération de la requête
-
-    distance = [] #Liste des distances
-    cosine(req,V)
-
-    coursesIndexes = np.argsort(distance)[-args.nbreq:][::-1] # Tri des distances
-    courseNames = []
-
-    for i in range(0,len(coursesIndexes)):
-        for name , index in reqDict.items():
-            if index == (coursesIndexes[i]):
-                courseNames.append(name) # Récupération des noms de cours dans le dictionnaire
 
     output = args.file.upper()
     output = output.split(".")[0] + "_Comp.txt"
