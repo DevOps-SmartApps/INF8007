@@ -25,8 +25,7 @@ def recom(classCode,nbreq):
 	path = 'PolyHEC/'
 
 	#---------------- Definitions des variables ----------------------#
-	words = []
-	listWReq =[]
+
 	dictIdf = {}
 	dictIndex = {} # Dictionnaire des cours et des indexs associés
 	courseDesc = []
@@ -61,6 +60,9 @@ def recom(classCode,nbreq):
 		n = len(bigListW)
 		for x in bigListW:
 			dictIndex[x] = bigListW.index(x) # Liste des index pour la matrice creuse
+
+		with open("analyze.p", "wb") as f_an:
+			pickle.dump( dictIndex, f_an )
 
 		Mdata,Mrow,Mcol = prepMatrix(n,d,bigListD,dictIndex) # Préparation des paramètres de la matrice
 
@@ -102,26 +104,36 @@ def recom(classCode,nbreq):
 	return recommendationsData
 
 def analyze(classCode):
-	data = {}
-	combined = ''
-	tokenised = []
-	stemmed = []
-	indices = []
+	regex_word = r'\W+'
 
-	combined = nomCours(classCode.upper()) + descriCours(classCode.upper())
-	data['combined']= combined
-	data['ascii']= combined
-	tokenised = str.split(combined)
-	data['tokenised']= tokenised
-	for i in range(0,len(tokenised)):
-		stemmed.append(SnowballStemmer('french').stem(tokenised[i])) #Réduction des mots à leur racine
+	try:
+		with open( "analyze.p", "rb") as f:
+			dictIndex = pickle.load( f )
+		data = {}
+		combined = ''
+		tokenised = []
+		stemmed = []
+		indices = []
 
-	print(stemmed)
-	data['stemmed'] = stemmed
-	data['indices']= 0
+		combined = nomCours(classCode.upper()) + descriCours(classCode.upper())
+		combined = re.sub(r'\.','',combined)
+		combined = re.sub(r'\n','',combined)
+		data['combined']= combined
+		data['ascii']= combined
+		tokenised = re.split(regex_word,combined)
+		data['tokenised']= tokenised
+		for i in range(0,len(tokenised)):
+			stemmed.append(SnowballStemmer('french').stem(tokenised[i]))
+		data['stemmed'] = stemmed
+		for i in range(0,len(stemmed)):
+			indices.append(dictIndex[stemmed[i]])
+		data['indices']= indices
+		return data
 
-	print(data)
-	return data
+	except (OSError, IOError) as e:
+		print('Erreur lecture pickle')
+		return 0
+
 
 #-----------------------------------------------------------------------------------------------------  Récupération des contenus
 def nomCours(classCode):
