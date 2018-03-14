@@ -115,7 +115,8 @@ def analyze(classCode):
 		stemmed = []
 		indices = []
 
-		combined = nomCours(classCode.upper()) + descriCours(classCode.upper())
+		combined = descriCours(classCode.upper())
+		combined = re.sub('\W+',' ',combined)
 		combined = re.sub(r'\.','',combined)
 		combined = re.sub(r'\n','',combined)
 		data['combined']= combined
@@ -203,12 +204,9 @@ def wordSep(content,bigListD,bigListW):
 
 	dict_words = {}
 	regex_word = r'\W+'
-	regex_space = r'\s'
 	regex_des = 'DescriptionCours'
 
-	CleanString = re.sub('\W+',' ',content) # Ajoute d'un espace avant les points
-
-	#Remplacer par racine et enlever mots inutiles
+	CleanString = re.sub('\W+',' ',content) # Ajout d'un espace avant les points
 	courseDesc = re.split(regex_des,CleanString)
 	words = re.split(regex_word,courseDesc[1]) # Split pour creer une list avec tous les mots de DescriptionCours
 
