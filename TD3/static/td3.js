@@ -43,6 +43,7 @@ function getClassInfo(classId, callback) {
   xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
   let response = JSON.parse(this.responseText);
+  console.log(response)
   callback(response.combined, response.ascii, response.tokenised, response.stemmed, response.indices);
   }
   //combined titre+descrition en une seule string  ascii idem, tokenised : liste des mots de combined  stemmed : stem(tokenised), indices : de la matrice tfidf
@@ -50,7 +51,7 @@ function getClassInfo(classId, callback) {
   showError(this.responseText);
   }
   };
-  url = "/courses/" + classId
+  url = "/analyz/" + classId
   xhttp.open('GET', url, true);
   xhttp.send();
 }
@@ -60,7 +61,6 @@ function getRecommendations(classId, callback) {
   xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
   let response = JSON.parse(this.responseText);
-  console.log(response)
   callback(response);
   }
   else if (this.readyState == 4 && this.status == 400) {

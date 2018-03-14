@@ -12,11 +12,6 @@ def shutdown_server():
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
-@app.route('/shutdown', methods=['POST'])
-def shutdown():
-    shutdown_server()
-    return 'Server shutting down...'
-
 @app.route('/')
 def index():
     return render_template('td3.html')
@@ -29,6 +24,10 @@ def course(course_code):
 def rec(recom_code):
     n = request.args["n"]
     return jsonify(td2.recom(recom_code,n))
+
+@app.route('/analyz/<analyz_code>')
+def analyze(analyz_code):
+    return jsonify(td2.analyze(analyz_code))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

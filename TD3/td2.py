@@ -101,7 +101,27 @@ def recom(classCode,nbreq):
 	print('Finished')
 	return recommendationsData
 
+def analyze(classCode):
+	data = {}
+	combined = ''
+	tokenised = []
+	stemmed = []
+	indices = []
 
+	combined = nomCours(classCode.upper()) + descriCours(classCode.upper())
+	data['combined']= combined
+	data['ascii']= combined
+	tokenised = str.split(combined)
+	data['tokenised']= tokenised
+	for i in range(0,len(tokenised)):
+		stemmed.append(SnowballStemmer('french').stem(tokenised[i])) #Réduction des mots à leur racine
+
+	print(stemmed)
+	data['stemmed'] = stemmed
+	data['indices']= 0
+
+	print(data)
+	return data
 
 #-----------------------------------------------------------------------------------------------------  Récupération des contenus
 def nomCours(classCode):
