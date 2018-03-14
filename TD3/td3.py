@@ -25,10 +25,10 @@ def index():
 def course(course_code):
     return jsonify(td2.request(course_code))
 
-@app.route('/recom/<recom_code>?n=<n>')
+@app.route('/recom/<recom_code>')
 def rec(recom_code):
     n = request.args["n"]
-    return jsonify(td2.recom(recom_code))
+    return jsonify(td2.recom(recom_code,n))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

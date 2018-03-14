@@ -45,7 +45,7 @@ function getClassInfo(classId, callback) {
   let response = JSON.parse(this.responseText);
   callback(response.combined, response.ascii, response.tokenised, response.stemmed, response.indices);
   }
-  //combined titre+descrition en une seule srting  ascii idem, tokenised : list des mots de combines  stemmed : stem(tokenised), indices : de la matrice tfidf
+  //combined titre+descrition en une seule string  ascii idem, tokenised : liste des mots de combined  stemmed : stem(tokenised), indices : de la matrice tfidf
   else if (this.readyState == 4 && this.status == 400) {
   showError(this.responseText);
   }
@@ -60,7 +60,8 @@ function getRecommendations(classId, callback) {
   xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
   let response = JSON.parse(this.responseText);
-  callback(response.recommendationsData);
+  console.log(response)
+  callback(response);
   }
   else if (this.readyState == 4 && this.status == 400) {
   showError(this.responseText);
@@ -157,7 +158,7 @@ function recommendationsView() {
   let recommender = document.getElementById('recommender');
   let currentClasses = recommender.getElementsByClassName('foldable');
   let i = 0;
-  for (; i < recommendations.length; i++) {
+    for (; i < recommendations.length; i++) {
     let r = recommendations[i];
     if (i < currentClasses.length) {
       modifyClassView(
